@@ -111,7 +111,7 @@ A testbench was used to apply input signals to the CMOS inverter and observe its
 
 
 
-## 3. PWL Transient Simulation
+## 4. PWL Transient Simulation
 
 The standalone SPICE netlist applies a piecewise-linear (PWL) input ramp from 0 V to 1.8 V over 900 ns.
 
@@ -152,7 +152,7 @@ The netlist loads the SKY130A transistor models, defines the inverter, runs tran
 
 **Simulation file:** `Lab1_inverter/ngspice/inverter.spice`
 
-## 4. Pulse Transient Simulation
+## 5. Pulse Transient Simulation
 
 A second testbench uses a periodic pulse input to examine the inverter response to repeated input transitions.
 
@@ -181,7 +181,7 @@ The recorded simulation produced a square-wave response. The input and output co
 ![Simulation Output](Lab1_inverter/screenshots/transient_analysis.png)
 **Testbench file:** `Lab1_inverter/ngspice/inv_tb_fixed.spice`
 
-## 5. Layout Design Using Magic
+## 6. Layout Design Using Magic
 
 The inverter layout was created in Magic using the SKY130A technology.
 
@@ -211,7 +211,7 @@ ext2spice
 - `ext2spice lvs` configures extraction for LVS.
 - `ext2spice` exports the extracted circuit to SPICE.
 
-## 6. Design Rule Check (DRC)
+## 7. Design Rule Check (DRC)
 
 DRC was performed in Magic to check the layout against the configured design rules.
 
@@ -231,7 +231,7 @@ Total DRC errors found: 0
 
 Zero reported DRC errors means no violations were reported by this check. It does not establish that the layout connectivity matches the schematic.
 
-## 7. Layout Versus Schematic (LVS)
+## 8. Layout Versus Schematic (LVS)
 
 LVS was attempted using Netgen to compare the extracted layout with the reference schematic.
 
@@ -263,7 +263,7 @@ The recorded LVS result showed connectivity mismatches, including unintended net
 
 The `netgen/` directory is reserved for LVS reports. No successful LVS result is claimed in this submission.
 
-## 8. Results
+## 9. Results
 
 | Activity | Result |
 |---|---|
@@ -275,7 +275,7 @@ The `netgen/` directory is reserved for LVS reports. No successful LVS result is
 | LVS comparison | Connectivity mismatch |
 | Final LVS equivalence | Not confirmed |
 
-## 9. Next Steps
+## 10. Next Steps
 
 - Investigate the unintended net merges found during extraction.
 - Correct the layout connectivity.
