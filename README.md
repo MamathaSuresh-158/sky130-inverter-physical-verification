@@ -99,6 +99,18 @@ The circuit consists of an NMOS pull-down transistor and a PMOS pull-up transist
 
 **Schematic file:** `Lab1_inverter/xschem/inv.sch`
 
+## 3. Inverter Testbench
+
+A testbench was used to apply input signals to the CMOS inverter and observe its transient response.
+
+### Testbench Setup
+
+<p align="center">
+  <img src="Lab1_inverter/screenshots/simulation_testbench.png" alt="Inverter testbench setup" width="700">
+</p>
+
+
+
 ## 3. PWL Transient Simulation
 
 The standalone SPICE netlist applies a piecewise-linear (PWL) input ramp from 0 V to 1.8 V over 900 ns.
