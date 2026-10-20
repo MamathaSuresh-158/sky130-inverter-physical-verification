@@ -1,0 +1,36 @@
+** sch_path: /home/mamatha/sky130_screening/schematic/inv_tb.sch
+**.subckt inv_tb vout vin
+*.opin vout
+*.opin vin
+x1 net1 vin vout GND GND inv
+V1 vin GND PULSE(0 1.8 0 100p 100p 10n 20n)
+VDD net1 GND 1.8
+**** begin user architecture code
+
+.lib /home/mamatha/.volare/volare/sky130/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/mamatha/sky130_screening/schematic/inv.sym # of pins=4
+** sym_path: /home/mamatha/sky130_screening/schematic/inv.sym
+** sch_path: /home/mamatha/sky130_screening/schematic/inv.sch
+.subckt inv vdd vin vout vss
+*.ipin vin
+*.opin vout
+*.iopin vdd
+*.iopin vss
+XM1 vout vin vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1
++
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 vout vin vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1
++
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.control
+tran 100p 40n
+plot v(vin) v(vout)
+.endc
+.GLOBAL GND
+.end
