@@ -166,6 +166,7 @@ The recorded simulation produced a square-wave response. The input and output co
 
 ![Pulse transient result](Lab1_inverter/screenshots/transient_pulse_result.png)
 
+![Simulation Output](Lab1_inverter/screenshots/transient_analysis.png)
 **Testbench file:** `Lab1_inverter/ngspice/inv_tb_fixed.spice`
 
 ## 5. Layout Design Using Magic
