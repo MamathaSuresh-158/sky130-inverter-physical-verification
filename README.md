@@ -54,7 +54,11 @@ command -v netgen-lvs
 ```
 
 ### Configure the PDK
-
+<p align="center">
+  <img src="Lab1_inverter/screenshots/pdk_setup.png"
+       alt="SKY130A PDK setup"
+       width="750">
+</p>
 ```bash
 export PDK_ROOT="$HOME/.volare/volare/sky130/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b"
 ```
@@ -70,7 +74,11 @@ ls "$PDK_ROOT/sky130A"
 ```bash
 xschem --rcfile "$PDK_ROOT/sky130A/libs.tech/xschem/xschemrc"
 ```
-
+<p align="center">
+  <img src="Lab1_inverter/screenshots/xschem_setup.png"
+       alt="Xschem setup with SKY130A PDK"
+       width="750">
+</p>
 Open the inverter schematic:
 
 `Lab1_inverter/xschem/inv.sch`
@@ -86,7 +94,11 @@ magic -rcfile "$HOME/sky130A.magicrc"
 Load the layout file:
 
 `Lab1_inverter/mag/inv.mag`
-
+<p align="center">
+  <img src="Lab1_inverter/screenshots/layout_setup.png"
+       alt="Xschem setup with SKY130A PDK"
+       width="750">
+</p>
 These commands use the paths from the original development environment. Different installations may require path changes.
 
 ## 2. Schematic Design
