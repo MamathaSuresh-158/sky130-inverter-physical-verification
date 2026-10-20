@@ -54,11 +54,7 @@ command -v netgen-lvs
 ```
 
 ### Configure the PDK
-<p align="center">
-  <img src="Lab1_inverter/screenshots/pdk_setup.png"
-       alt="SKY130A PDK setup"
-       width="750">
-</p>
+
 ```bash
 export PDK_ROOT="$HOME/.volare/volare/sky130/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b"
 ```
@@ -68,7 +64,11 @@ Check that the PDK is available:
 ```bash
 ls "$PDK_ROOT/sky130A"
 ```
-
+<p align="center">
+  <img src="Lab1_inverter/screenshots/pdk_setup.png"
+       alt="SKY130A PDK setup"
+       width="750">
+</p>
 ### Launch Xschem
 
 ```bash
@@ -159,6 +159,9 @@ ngspice Lab1_inverter/ngspice/inverter.spice
 ```
 
 The netlist loads the SKY130A transistor models, defines the inverter, runs transient analysis, and plots the input and output voltages.
+![PWL input setup](Lab1_inverter/screenshots/inverter_pwl_setup.png)
+
+![PWL transient result](Lab1_inverter/screenshots/transient_pwl_result.png)  
 
 ![PWL input and output waveform](Lab1_inverter/screenshots/pwl_input_output_waveform.png)
 
