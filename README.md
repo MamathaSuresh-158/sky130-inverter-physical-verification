@@ -149,7 +149,7 @@ The transient analysis command is:
 ```spice
 tran 1n 1u
 ```
-
+![PWL input setup](Lab1_inverter/screenshots/inverter_pwl_setup.png)
 ### Run the simulation
 
 From the repository root:
@@ -159,7 +159,7 @@ ngspice Lab1_inverter/ngspice/inverter.spice
 ```
 
 The netlist loads the SKY130A transistor models, defines the inverter, runs transient analysis, and plots the input and output voltages.
-![PWL input setup](Lab1_inverter/screenshots/inverter_pwl_setup.png)
+
 
 ![PWL transient result](Lab1_inverter/screenshots/transient_pwl_result.png)  
 
@@ -181,6 +181,8 @@ The source specifies a low voltage of 0 V, a high voltage of 1.8 V, rise and fal
 
 The testbench uses a 1.8 V supply and a transient stop time of 40 ns.
 
+![Pulse input setup](Lab1_inverter/screenshots/inverter_pulse_setup.png)
+
 ### Run the testbench
 
 ```bash
@@ -189,7 +191,7 @@ ngspice Lab1_inverter/ngspice/inv_tb_fixed.spice
 
 The recorded simulation produced a square-wave response. The input and output connections should be checked against the current schematic when interpreting the result.
 
-![Pulse input setup](Lab1_inverter/screenshots/inverter_pulse_setup.png)
+
 
 ![Pulse transient result](Lab1_inverter/screenshots/transient_pulse_result.png)
 
