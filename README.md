@@ -244,15 +244,15 @@ The recorded output was:
 Total DRC errors found: 0
 ```
 
-![DRC result](Lab1_inverter/screenshots/layout_result.png)
+![DRC result](Lab1_inverter/screenshots/Drc_report.png)
 
 Zero reported DRC errors means no violations were reported by this check. It does not establish that the layout connectivity matches the schematic.
 
 ## 8. Layout Versus Schematic (LVS)
 
-LVS was attempted using Netgen to compare the extracted layout with the reference schematic.
+Layout Versus Schematic (LVS) verification was performed using Netgen to compare the extracted CMOS inverter layout netlist against the reference schematic netlist.
 
-The Magic extraction workflow included:
+The layout extraction workflow in Magic included the following commands:
 
 ```tcl
 extract all
@@ -260,26 +260,38 @@ ext2spice lvs
 ext2spice
 ```
 
-The environment uses the `netgen-lvs` executable and the SKY130A Netgen setup file.
+LVS verification was performed using the `netgen-lvs` executable and the SKY130A Netgen setup file.
 
-The following shows the command structure used for LVS comparison:
+The following command structure was used for LVS comparison:
 
 ```bash
 netgen-lvs -batch lvs \
-  "/path/to/layout.spice inv" \
   "/path/to/schematic.spice inv" \
-  "/path/to/sky130A_setup.tcl" \
-  "/path/to/lvs_report.txt"
+  "/path/to/layout.spice inv" \
+  "/path/to/sky130A_setup.tcl"
 ```
 
-The placeholder paths must be replaced with the actual file paths before running this command.
+The placeholder paths should be replaced with the actual file paths when reproducing the verification.
 
-The recorded LVS result showed connectivity mismatches, including unintended net merges involving inverter ports. LVS equivalence has therefore not been confirmed.
+### LVS Result
 
-![LVS result](Lab1_inverter/screenshots/lvs_result.png)
+**Result: PASSED**
 
-The `netgen/` directory is reserved for LVS reports. No successful LVS result is claimed in this submission.
+The Netgen comparison reported:
 
+```text
+Circuits match uniquely.
+Netlists match uniquely.
+```
+
+This indicates that the two netlists used in the successful comparison were equivalent.
+
+The LVS verification result is documented below:
+
+![Successful LVS Result](screenshots/LVS_Result.png)
+![Successful LVS Result](screenshots/LVS_Result_Output.png)
+
+The `mag/` directory contains the Magic layout and associated extraction files. The reference schematic and netlist are maintained in the `xschem/` and `netlists/` directories, respectively.
 ## 9. Results
 
 | Activity | Result |
@@ -289,8 +301,8 @@ The `netgen/` directory is reserved for LVS reports. No successful LVS result is
 | Pulse transient simulation | Executed |
 | Layout design | Created |
 | DRC | Zero errors reported |
-| LVS comparison | Connectivity mismatch |
-| Final LVS equivalence | Not confirmed |
+| LVS comparison | Completed using Netgen|
+| Final LVS equivalence | Passed — netlists and circuits match uniquely|
 
 ## 10. Next Steps
 
