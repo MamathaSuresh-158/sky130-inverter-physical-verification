@@ -204,7 +204,7 @@ The inverter layout was created in Magic using the SKY130A technology.
 
 The native Magic layout file is included in this repository.
 
-![Inverter layout](Lab1_inverter/screenshots/inverter_layout.png)
+![Inverter layout](Lab1_inverter/screenshots/Layout.png)
 
 **Layout file:** `Lab1_inverter/mag/inv.mag`
 
