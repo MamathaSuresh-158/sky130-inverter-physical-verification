@@ -30,9 +30,9 @@ lab=vout}
 N -10 -440 50 -440 {
 lab=vin}
 C {/home/mamatha/open_pdks/sky130/sky130A/libs.tech/xschem/sky130_fd_pr/nfet_01v8.sym} 70 -390 0 0 {name=M1
-W=4.5
-L=0.18
-nf=3
+W=1
+L=0.15
+nf=1
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
@@ -44,9 +44,9 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {/home/mamatha/open_pdks/sky130/sky130A/libs.tech/xschem/sky130_fd_pr/pfet_01v8.sym} 70 -490 0 0 {name=M2
-W=3
-L=0.18
-nf=3
+W=1
+L=0.15
+nf=1
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
