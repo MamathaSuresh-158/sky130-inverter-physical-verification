@@ -288,8 +288,8 @@ This indicates that the two netlists used in the successful comparison were equi
 
 The LVS verification result is documented below:
 
-![Successful LVS Result](screenshots/LVS_Result.png)
-![Successful LVS Result](screenshots/LVS_Result_Output.png)
+![Successful LVS Result](Lab1_inverter/screenshots/LVS_Result.png)
+![Successful LVS Result](Lab1_inverter/screenshots/LVS_Result_Output.png)
 
 The `mag/` directory contains the Magic layout and associated extraction files. The reference schematic and netlist are maintained in the `xschem/` and `netlists/` directories, respectively.
 ## 9. Results
@@ -303,14 +303,6 @@ The `mag/` directory contains the Magic layout and associated extraction files. 
 | DRC | Zero errors reported |
 | LVS comparison | Completed using Netgen|
 | Final LVS equivalence | Passed — netlists and circuits match uniquely|
-
-## 10. Next Steps
-
-- Investigate the unintended net merges found during extraction.
-- Correct the layout connectivity.
-- Repeat extraction after making corrections.
-- Run LVS again against the reference schematic.
-- Include the final LVS report after successful verification.
 
 ## References
 
