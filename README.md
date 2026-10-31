@@ -292,18 +292,69 @@ The LVS verification result is documented below:
 ![Successful LVS Result](Lab1_inverter/screenshots/LVS_Result_Output.png)
 
 The `mag/` directory contains the Magic layout and associated extraction files. The reference schematic and netlist are maintained in the `xschem/` and `netlists/` directories, respectively.
-## 9. Results
+
+## 9. Post-Layout Simulation Results
+
+After completing the CMOS inverter layout and verification, post-layout simulation was performed using the extracted SPICE netlist generated from Magic.
+
+### 9.1 Layout Extraction
+
+The physical layout was extracted using Magic to generate the following files:
+
+- `inv.ext` – Extracted layout information.
+- `inv.spice` – Extracted SPICE netlist used for post-layout simulation.
+
+The extracted netlist includes the circuit information obtained from the physical layout.
+
+### 9.2 Parasitic Extraction
+
+Parasitic capacitance and resistance information from the physical layout were extracted and verified.
+
+The following screenshots show the parasitic extraction results:
+
+![Parasitic Capacitance](Lab1_inverter/post_layout_simulation/screenshots/parasitic_capacitance.png)
+
+![Parasitic Capacitance](Lab1_inverter/post_layout_simulation/screenshots/parasitic_capacitance1.png)
+
+![Parasitic Resistance](Lab1_inverter/post_layout_simulation/screenshots/parasitic_resistance1.png)
+
+![Parasitic Resistance](Lab1_inverter/post_layout_simulation/screenshots/parasitic_resistance2.png)
+### 9.3 Post-Layout Simulation Setup
+
+| Parameter | Configuration |
+|---|---|
+| Simulation Tool | ngspice |
+| Technology | SKY130A |
+| Supply Voltage | 1.8 V |
+| Model Corner | TT |
+| Input Signal | Pulse waveform (0–1.8 V) |
+| Analysis | Transient Analysis |
+
+![Post-Layout Simulation Setup](Lab1_inverter/post_layout_simulation/screenshots/Post_layout_simulation.png)
+
+![Post-Layout Simulation Setup](Lab1_inverter/post_layout_simulation/screenshots/Post_layout_Simulation2.png)
+
+### 9.4 Post-Layout Simulation Result
+
+The extracted SPICE netlist was simulated using ngspice. The transient simulation confirmed the expected operation of the CMOS inverter.
+
+- When the input voltage is HIGH, the output voltage switches LOW.
+- When the input voltage is LOW, the output voltage switches HIGH.
+- The post-layout simulation verified the functional behavior of the inverter after layout extraction.
+
+![Post-Layout Simulation Waveform](Lab1_inverter/post_layout_simulation/screenshots/post_layout_waveform.png)
+
+### 9.5 Final Verification Status
 
 | Activity | Result |
 |---|---|
-| Schematic capture | Completed |
-| PWL transient simulation | Executed |
-| Pulse transient simulation | Executed |
-| Layout design | Created |
-| DRC | Zero errors reported |
-| LVS comparison | Completed using Netgen|
-| Final LVS equivalence | Passed — netlists and circuits match uniquely|
-
+| Schematic Design | Completed |
+| Layout Design | Completed |
+| DRC Verification | Zero errors reported |
+| LVS Verification | Passed |
+| Parasitic Capacitance Extraction | Completed |
+| Parasitic Resistance Extraction | Completed |
+| Post-Layout Transient Simulation | Completed |
 ## References
 
 - [SkyWater SKY130 PDK Documentation](https://skywater-pdk.readthedocs.io/)
