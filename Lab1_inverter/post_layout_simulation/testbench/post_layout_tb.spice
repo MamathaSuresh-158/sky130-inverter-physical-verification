@@ -1,0 +1,22 @@
+* SKY130 CMOS Inverter - Post Layout Simulation
+
+.lib "/home/mamatha/.volare/volare/sky130/versions/c6d73a35f524070e85faff4a6a9eef49553ebc2b/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+
+.include "inv.spice"
+
+VDD vdd 0 DC 1.8
+VIN vin 0 PULSE(0 1.8 1n 50p 50p 5n 10n)
+
+XINV vdd 0 vin vout inv
+
+CLOAD vout 0 5f
+
+.control
+tran 5p 20n
+plot v(vin) v(vout)
+
+meas tran tpLH TRIG v(vin) VAL=0.9 RISE=1 TARG v(vout) VAL=0.9 RISE=1
+meas tran tpHL TRIG v(vin) VAL=0.9 FALL=1 TARG v(vout) VAL=0.9 FALL=1
+
+.endc
+.end
